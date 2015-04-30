@@ -1,10 +1,18 @@
-Some vagrant configuration file to initialize a default environment suitable for most PHP applications with apache and
-mysql.
 
-The `/var/www` folder will be redirected to `./www` .
+A docker image to easily test php applications with apache/mysql/smtp configuration. It is created using
+[baseimage](https://github.com/phusion/baseimage-docker) because we need a fully working OS in order to make everything
+work.
 
-MySQL user: root
+To launch:
 
-MySQL password: root
+    docker run -d --name=${name} -p 5000:80 -v ${www_folder}:/var/www nicolasvan/phpdocker
 
-MySQL default database: defaultdb
+To have a bash in your container:
+
+    docker exec -t -i ${name} bash
+
+MySQL info:
+
+* MySQL user: root
+* MySQL password: root
+* MySQL default database: defaultdb

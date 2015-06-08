@@ -5,7 +5,7 @@ work.
 
 To launch:
 
-    docker run -d --name=${name} -p 5000:80 -v ${www_folder}:/var/www nicolasvan/phpdocker
+    docker run -d --name=${name} -p 5000:80 -v ${www_folder}:/var/www nicolasvan/phpdocker:1.0.1
 
 To have a bash in your container:
 

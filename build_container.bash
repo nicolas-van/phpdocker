@@ -1,3 +1,4 @@
 #!/bin/bash
 
-docker build -t nicolasvan/phpdocker .
+version=`cat version`
+docker build -t nicolasvan/phpdocker:$version .

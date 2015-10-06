@@ -9,9 +9,9 @@ To launch:
     
 Where:
     
-    * `${name}` is the name you want to assign to your container.
-    * `${www_folder}` is the absolute path to the folder containing your php files
-    * `${port}` is the port you want to use on your machine.
+* `${name}` is the name you want to assign to your container.
+* `${www_folder}` is the absolute path to the folder containing your php files
+* `${port}` is the port you want to use on your machine.
 
 To have a bash in your container:
 

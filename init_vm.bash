@@ -6,7 +6,7 @@ apt-get update
 echo "mysql-server-5.5 mysql-server/root_password password root" | debconf-set-selections
 echo "mysql-server-5.5 mysql-server/root_password_again password root" | debconf-set-selections
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential apache2 php5-gd php5-sqlite php5 php5-cli php5-mysql mysql-server php-db php-pear php5-mcrypt
+DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential apache2 php5-gd php5-sqlite php5 php5-cli php5-mysql mysql-server php-db php-pear php5-mcrypt php5-xdebug
 
 pecl install uploadprogress
 echo "extension=uploadprogress.so" > /etc/php5/apache2/conf.d/uploadprogress.ini
@@ -20,6 +20,7 @@ cp /root/setup/mpm_prefork.conf /etc/apache2/mods-available/mpm_prefork.conf
 chown root:root /etc/apache2/mods-available/mpm_prefork.conf
 a2enmod rewrite
 php5enmod mcrypt
+echo "xdebug.remote_enable=1" >> /etc/php5/apache2/conf.d/20-xdebug.ini
 
 mkdir /etc/my_init.d
 cp /root/setup/init_container.sh /etc/my_init.d/init_container.sh
@@ -32,4 +33,5 @@ mysql -uroot -proot -e "create database if not exists defaultdb"
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y postfix
 DEBIAN_FRONTEND=noninteractive apt-get install -y mailutils
+DEBIAN_FRONTEND=noninteractive apt-get install -y phpmyadmin
 
